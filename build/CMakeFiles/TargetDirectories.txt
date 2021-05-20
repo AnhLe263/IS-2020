@@ -1,3 +1,0 @@
-/Volumes/Data/WorkSpace/PhotonNuclear/IS-2020Pr/IS-2020/build/CMakeFiles/rebuild_cache.dir
-/Volumes/Data/WorkSpace/PhotonNuclear/IS-2020Pr/IS-2020/build/CMakeFiles/edit_cache.dir
-/Volumes/Data/WorkSpace/PhotonNuclear/IS-2020Pr/IS-2020/build/CMakeFiles/Brem.dir
