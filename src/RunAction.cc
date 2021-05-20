@@ -55,7 +55,9 @@ void RunAction::BeginOfRunAction(const G4Run*)
   //
   G4String fileName = "result";
   analysisManager->OpenFile(fileName);
-  analysisManager->SetActivation(true);
+  //analysisManager->SetActivation(true);
+
+  analysisManager->SetNtupleMerging(true);
 }
 
 

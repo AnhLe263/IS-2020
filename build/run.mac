@@ -1,0 +1,10 @@
+
+
+/run/initialize
+#/gun/particle ion
+#/gun/ion 20 40 14
+#
+
+#
+/run/printProgress 1000
+/run/beamOn 5000
