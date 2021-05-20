@@ -100,7 +100,8 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
 
    const std::vector<const G4Track*>* secondary
    	= step->GetSecondaryInCurrentStep();
-   if ((*secondary).size() >0 && (iDet==4) && (hproc))
+   //if ((*secondary).size() >0 && (iDet==4) && (hproc))
+   if ((*secondary).size() >0 && (iDet==2))
      {
        G4bool isEu152=false;
        for (size_t nn=0;nn<(*secondary).size();nn++)
@@ -116,8 +117,8 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
    	  G4String name=part->GetParticleName();
    	  //if (name == "e-") fEventAction->AddElectron(1);
       //if (name != "Eu152")
-        if (iDet ==4){
-   	      G4cout<<"Part#"<<nn<<": "<<name<<";\t at "<<iDet<<G4endl;
+        if (iDet ==2){
+   	      //G4cout<<"Part#"<<nn<<": "<<name<<";\t at "<<iDet<<G4endl;
    	      G4int A=part->GetAtomicMass();
    	      G4int Z=part->GetAtomicNumber();
    	      G4double E=(*secondary)[nn]->GetKineticEnergy();

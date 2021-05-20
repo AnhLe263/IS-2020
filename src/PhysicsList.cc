@@ -13,14 +13,40 @@
 #include "G4EmLowEPPhysics.hh"
 #include "G4EmParameters.hh"
 #include "GammaNuclearPhysics.hh"
+
+#include "G4LossTableManager.hh"
+#include "G4UnitsTable.hh"
+#include "G4SystemOfUnits.hh"
+
+#include "G4VAtomDeexcitation.hh"
+#include "G4UAtomicDeexcitation.hh"
 PhysicsList::PhysicsList(): G4VModularPhysicsList()
 {
     fMessenger = new PhysicsListMessenger(this);
     fEmPhysicsList = new G4EmStandardPhysics();
+
+    //G4EmParameters::Instance()->SetBuildCSDARange(true);
+    G4LossTableManager::Instance();
+   // Deexcitation
+  //
+    G4VAtomDeexcitation* de = new G4UAtomicDeexcitation();
+    G4LossTableManager::Instance()->SetAtomDeexcitation(de);
+
+    G4EmParameters* param = G4EmParameters::Instance();
+    param->SetDefaults();
+    param->SetMinEnergy(0*eV);
+    param->SetMaxEnergy(10*TeV);
+    param->SetBuildCSDARange(true);
+  //param->SetNumberOfBinsPerDecade(10);
+  //param->SetMscStepLimitType(fUseSafetyPlus);
+    param->SetFluo(true);
+    //SetDefaultCutValue(1*mm);
 }
 
 PhysicsList::~PhysicsList()
 {
+  delete fMessenger;
+  delete fEmPhysicsList;
 
 }
 #include "G4BosonConstructor.hh"

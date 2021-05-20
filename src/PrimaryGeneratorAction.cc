@@ -64,9 +64,10 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   CLHEP::HepRandomEngine* randGen = new CLHEP::RanecuEngine;
   randGen->setSeed(seed,0);
   CLHEP::RandGauss *Grand=new CLHEP::RandGauss(randGen);
-  G4double Emean=25.;//MeV
-  G4double Esigma=0.03;//MeV
-  G4double E=(Grand->shoot(Emean,Esigma))*MeV;
+  G4double Emean=15.;//MeV
+  G4double E = Emean;
+  //G4double Esigma=0.03;//MeV
+  //G4double E=(Grand->shoot(Emean,Esigma))*MeV;
   fParticleGun->SetParticleEnergy(E);
   //G4cout<<G4BestUnit(E,"Energy")<<G4endl;
   fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1));

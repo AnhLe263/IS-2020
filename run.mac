@@ -1,4 +1,9 @@
-
+/control/verbose 2
+/run/verbose 2
+#
+/testem/phys/addPhysics  emstandard_opt0	# em physics
+###/testem/phys/addPhysics  emlivermore	# em physics
+###/testem/phys/addPhysics  empenelope	# em physics
 
 /run/initialize
 #/gun/particle ion

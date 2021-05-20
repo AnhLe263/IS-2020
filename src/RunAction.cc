@@ -14,6 +14,8 @@ RunAction::RunAction()
   : G4UserRunAction()
 {
   G4AnalysisManager* analysisManager=G4AnalysisManager::Instance();
+  analysisManager->SetNtupleMerging(true);
+  
   analysisManager->CreateNtuple("Fairy","step Inform");
   analysisManager->CreateNtupleDColumn("KE");
   analysisManager->CreateNtupleDColumn("Theta");
@@ -57,7 +59,7 @@ void RunAction::BeginOfRunAction(const G4Run*)
   analysisManager->OpenFile(fileName);
   //analysisManager->SetActivation(true);
 
-  analysisManager->SetNtupleMerging(true);
+  
 }
 
 

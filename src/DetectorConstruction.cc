@@ -76,7 +76,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   //G4LogicalVolume* logicAl = new G4LogicalVolume(solidAl,Al,"Al");
   //pos=-disAlTar - AlZ/2.;
   //new G4PVPlacement(0,G4ThreeVector(0,0,pos),logicAl,"Al",logicWorld,false,0,true);
-
+  
   //H20
   G4double water_Z = 10.*cm;
   G4double water_XY = 10.*cm;
