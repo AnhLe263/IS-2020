@@ -44,8 +44,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   //G4Material* tar_mat=Eumat;
   G4cout << *(G4Material::GetMaterialTable()); 
   // World
-  G4double world_XY = 40.*cm;
-  G4double world_Z = 80.*cm;
+  G4double world_XY = 24.*cm;
+  G4double world_Z = 28.*cm;
   G4Box* solidWorld =    
     new G4Box("World",0.5*world_XY, 0.5*world_XY, 0.5*world_Z); 
       
