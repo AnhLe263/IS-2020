@@ -2,7 +2,7 @@
 #include "G4NucleiProperties.hh"
 #include "G4SystemOfUnits.hh"
 #include "G4PhysicalConstants.hh"
-#include "G4MTRandGeneral.hh"
+//#include "G4MTRandGeneral.hh"
 #include "Randomize.hh"
 #include "G4ParticleTable.hh"
 #include "G4ParticleDefinition.hh"
@@ -12,6 +12,7 @@
 #include "G4GammaNuclAngDst.hh"
 #include "G4VTwoBodyAngDst.hh"
 #include "G4TwoBodyAngularDist.hh"
+#include "CLHEP/Random/RandGeneral.h"
 G4HadFinalState* custommodel::ApplyYourself(const G4HadProjectile &aTrack, G4Nucleus &targetNucleus)
 {
     theParticleChange.Clear();
@@ -138,7 +139,7 @@ return Tb;
 
 G4double custommodel::GetRandomTheta()
 {
-    G4MTRandGeneral* r=new G4MTRandGeneral(Theta,360,0);
+    CLHEP::RandGeneral * r=new CLHEP::RandGeneral(Theta,360,0);
     G4double a =  r->shoot();
     delete r;
     return 3.14*a;

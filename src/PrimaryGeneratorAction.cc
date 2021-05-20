@@ -17,7 +17,8 @@
 #include "G4ChargedGeantino.hh"
 #include "Randomize.hh"
 #include "G4PhysicalConstants.hh"
-#include "G4MTRandGauss.hh"
+//#include "G4MTRandGauss.hh"
+#include "CLHEP/Random/RandGauss.h"
 
 #include <time.h>
 
@@ -62,7 +63,7 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   G4long seed=time(NULL);
   CLHEP::HepRandomEngine* randGen = new CLHEP::RanecuEngine;
   randGen->setSeed(seed,0);
-  G4MTRandGauss *Grand=new G4MTRandGauss(randGen);
+  CLHEP::RandGauss *Grand=new CLHEP::RandGauss(randGen);
   G4double Emean=25.;//MeV
   G4double Esigma=0.03;//MeV
   G4double E=(Grand->shoot(Emean,Esigma))*MeV;
